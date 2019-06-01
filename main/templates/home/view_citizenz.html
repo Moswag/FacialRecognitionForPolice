@@ -1,0 +1,61 @@
+{% extends "layout/base.html" %}
+{% block main_content %}
+    {% load static %}
+    <div class="main-content-inner">
+        <div class="row">
+
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">View Citizens</h4>
+                        {% if messages %}
+                            <div class="span12">
+                                {% for message in messages %}
+                                    <div class="alert alert-success">
+                                        {{ message|safe }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="data-tables datatable-dark">
+                            <table id="dataTable3" class="text-center">
+                                <thead class="text-capitalize">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>National ID</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for citizen in citizens %}
+                                    <tr>
+                                        <td>{{ citizen.name }}</td>
+                                        <td>{{ citizen.national_id }}</td>
+                                        <td>{{ citizen.address }}</td>
+                                        <td>{{ citizen.status }}</td>
+                                        <td>
+                                            {% if citizen.status == 'Free' %}
+                                            <a href="{% url 'wanted_citizen' citizen_id=citizen.pk %}" class="btn-danger">Wanted</a>
+                                            {% elif citizen.status == 'Found' %}
+                                            <a href="{% url 'wanted_citizen' citizen_id=citizen.pk %}" class="btn-danger">Wanted</a>
+                                            {% else %}
+                                            <a href="{% url 'free_citizen' citizen_id=citizen.pk %}"  class="btn-success">Found</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Dark table end -->
+        </div>
+    </div>
+{% endblock %}
+{% block js_content %}
+    <script src="{% static  'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+{% endblock %}

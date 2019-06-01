@@ -1,0 +1,53 @@
+{% extends "layout/base.html" %}
+{% block head_content %}
+<script>
+window.onload = function () {
+
+var options = {
+	title: {
+		text: "Accuracy Report"
+	},
+	subtitles: [{
+		text: "As of November, 2017"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "pie",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}%",
+		dataPoints: [
+			{ y: 48.36, label: "Criminal Identified" },
+			{ y: 26.85, label: "Unidentified" }
+		]
+	}]
+};
+$("#chartContainer").CanvasJSChart(options);
+
+}
+</script>
+{% endblock %}
+
+
+{% block main_content %}
+    {% load static %}
+<div class="main-content-inner">
+        <div class="row">
+            <div class="col-lg-10 col-ml-12">
+                <div class="row">
+
+<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+<script src="{% static  'assets/js/jquery-1.11.1.min.js' %}"></script>
+<script src="{% static  'assets/js/jquery.canvasjs.min.js' %}"></script>
+                </div>
+            </div>
+
+
+        </div>
+             </div>
+        </div>
+{% endblock %}
+

@@ -1,0 +1,102 @@
+{% extends "layout/base.html" %}
+{% block main_content %}
+    {% load static %}
+<div class="main-content-inner">
+                <div class="card-area">
+                    {% if messages %}
+                        <div class="span12">
+                            {% for message in messages %}
+                                <div class="alert alert-success">
+                                    {{ message|safe }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mt-5">
+                            <div class="card card-bordered">
+                                <img class="card-img-top img-fluid" src="{% static  'assets/images/card/uploadimage.jpg' %}" alt="image">
+                                <div class="card-body">
+                                    <h5 class="title">Upload Thief Picture</h5>
+                                    <p class="card-text">Upload thief picture and the system will detect and run an analysis on the picture face to detect the person as best as it can
+                                    </p>
+
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Upload Picture</button>
+                                    <div class="modal fade" id="exampleModalLong">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Upload Picture</h5>
+
+                                            </div>
+                                            <form method="post" action="/detectImage" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                            <div class="modal-body">
+                                                <input type="file" name="image" required>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <a  type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                                                <button type="submit" class="btn btn-primary">Process</button>
+                                            </div>
+                                                </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mt-5">
+                            <div class="card card-bordered">
+                                <img class="card-img-top img-fluid" src="{% static  'assets/images/card/uploadvideo.png' %}" alt="image">
+                                <div class="card-body">
+                                    <h5 class="title">Upload Thief Video</h5>
+                                    <p class="card-text">Upload thief video and the system will detect and run an analysis on the picture face to detect the person as best as it can
+                                    </p>
+
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Upload Video</button>
+                                    <div class="modal fade" id="exampleModalLong">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Upload Video</h5>
+
+                                            </div>
+                                            <form method="post" action="" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                            <div class="modal-body">
+                                                <input type="file" name="image" required>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <a  type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                                                <button type="submit" class="btn btn-primary">Process</button>
+                                            </div>
+                                                </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-4 col-md-6 mt-5">
+                            <div class="card card-bordered">
+                                <img class="card-img-top img-fluid" src="{% static  'assets/images/card/webcam.jpg' %}" alt="image">
+                                <div class="card-body">
+                                    <h5 class="title">Detect Using Webcam.</h5>
+                                    <p class="card-text">Webcam is used to model a CCTV in this case
+                                    </p>
+                                    <a href="/detectWithWebcam" class="btn btn-primary">Open Webcam</a>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block js_content %}
+    <script src="{% static  'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+{% endblock %}

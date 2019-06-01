@@ -1,0 +1,56 @@
+{% extends "layout/base.html" %}
+{% block main_content %}
+    {% load static %}
+    <div class="main-content-inner">
+        <div class="row">
+
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Spotted Wanted People</h4>
+                        {% if messages %}
+                            <div class="span12">
+                                {% for message in messages %}
+                                    <div class="alert alert-success">
+                                        {{ message|safe }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="data-tables datatable-dark">
+                            <table id="dataTable3" class="text-center">
+                                <thead class="text-capitalize">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>National ID</th>
+                                    <th>Address</th>
+                                    <th>Date Spotted</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for thief in thiefs %}
+                                    <tr>
+                                        <td>{{ thief.name }}</td>
+                                        <td>{{ thief.national_id }}</td>
+                                        <td>{{ thief.address }}</td>
+                                        <td>{{ thief.created_at }}</td>
+                                        <td>
+                                            <a href="{% url 'thief_location' thief_id=thief.pk %}" class="btn-primary">View Location</a>
+                                            <a href="{% url 'found_thief' thief_id=thief.pk %}" class="btn-success">Found</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Dark table end -->
+        </div>
+    </div>
+{% endblock %}
+{% block js_content %}
+    <script src="{% static  'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+{% endblock %}

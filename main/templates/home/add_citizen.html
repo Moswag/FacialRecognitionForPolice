@@ -1,0 +1,68 @@
+{% extends "layout/base.html" %}
+{% block main_content %}
+    {% load static %}
+    <!-- page title area end -->
+    <div class="main-content-inner">
+        <div class="row">
+            <div class="col-lg-10 col-ml-12">
+                <div class="row">
+                    <!-- Textual inputs start -->
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Add Citizen</h4>
+                                {% if messages %}
+                                    <div class="span12">
+                                        {% for message in messages %}
+                                            <div class="alert alert-danger">
+                                                {{ message|safe }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <br/>
+                                <form method="post" action="/save_citizen" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-form-label">Name</label>
+                                        <input class="form-control" type="text" name="name" id="example-text-input"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-url-input" class="col-form-label">National ID</label>
+                                        <input class="form-control" type="text" name="national_id"
+                                               id="example-url-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email-input" class="col-form-label">Address</label>
+                                        <input class="form-control" type="text" name="address" id="example-email-input"
+                                               required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="example-tel-input" class="col-form-label">Picture</label>
+                                        <input class="form-control" type="file" name="image" id="example-tel-input"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Textual inputs end -->
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    <!-- main content area end -->
+{% endblock %}
+{% block js_content %}
+    <script src="{% static  'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+{% endblock %}
