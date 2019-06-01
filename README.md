@@ -15,11 +15,11 @@ built with deep learning. The model has an accuracy of 99.38% on the
 
   * Python 3.3+ or Python 2.7
   
-  clone this repository
-  git clone
-  #do a pip install 
-  pip install -r requirements.txt
-  #modify the database in the settings.py which is this part
+  *clone this repository
+  *git clone
+  *#do a pip install 
+  *pip install -r requirements.txt
+  *#modify the database in the settings.py which is this part
   DATABASES = {
     'default': {
         'NAME': 'crime_identify',
@@ -32,9 +32,9 @@ built with deep learning. The model has an accuracy of 99.38% on the
     }
 }
 
-#create a database with the name of your choice
-#import the sql crime_identify.sql in the root folder for the project you cloned
-#you can also run a python migrate if you do not want the data populated in my database
+*#create a database with the name of your choice
+*#import the sql crime_identify.sql in the root folder for the project you cloned
+*#you can also run a python migrate if you do not want the data populated in my database
   
   
 
