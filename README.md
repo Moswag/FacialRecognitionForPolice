@@ -36,6 +36,8 @@ built with deep learning. The model has an accuracy of 99.38% on the
 * #import the sql crime_identify.sql in the root folder for the project you cloned
 * #you can also run a python migrate if you do not want the data populated in my database
   
+## Chechout the video at
+ * https://www.youtube.com/watch?v=dPHTOraUPDc&t=12s
   
 
 
