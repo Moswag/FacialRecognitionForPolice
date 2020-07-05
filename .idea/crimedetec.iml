@@ -15,8 +15,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/venvx" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.4 (crimedetec)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (FacialRecognitionForPolice)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
