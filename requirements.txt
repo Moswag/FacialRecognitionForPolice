@@ -6,7 +6,7 @@ Click==7.0
 cmake==3.13.3
 coverage==4.5.1
 cycler==0.10.0
-Django==2.0.13
+Django==2.2.13
 django-widget-tweaks==1.4.3
 djangorestframework==3.9.4
 dlib==19.17.0
