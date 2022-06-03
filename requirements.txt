@@ -1,6 +1,6 @@
 absl-py==0.7.1
 astor==0.7.1
-bottle==0.12.8
+bottle==0.12.20
 chatterbot-corpus==1.2.0
 Click==7.0
 cmake==3.13.3
